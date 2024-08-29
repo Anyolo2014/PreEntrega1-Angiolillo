@@ -24,6 +24,7 @@ function menu (){
 	const producto = prompt (
 		"Elija uno de nuestros productos \n1: Pelota de Fútbol \n2: Pelota de Basquet \n3: Pelota de Voley \n4: Terminar"
 		)
+		
 	return producto
 }
 
