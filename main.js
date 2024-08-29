@@ -3,10 +3,7 @@ function saludar (nombre){
 	"Bienvenido/a MUNDO PELOTA " + nombre + " a continuación podrás seleccionar productos de nuestra tienda.");
 }
 
-function comprarPelota (){
-	producto = prompt (
-	"Elija uno de nuestros productos \n1: Pelota de Fútbol \n2: Pelota de Basquet \n3: Pelota de Voley \n4: Terminar"
-	)
+function opciones (producto){
 	if (producto == "1") {
 		alert("Elegiste Pelota de Fútbol");
 	}
@@ -19,23 +16,41 @@ function comprarPelota (){
 	else if (producto == "4") {
 		return false;
 	}
-	preguntaFinal = prompt (
-	"Vuelva a elegir una opcion: \n1: Mostrar precio Final \n2: Volver al menú anterior \n3: Terminar"
-	)	
-	
-	if (preguntaFinal === "1"){
-		preciosFinales ();
-	}
-	if (preguntaFinal === "2"){	
-		comprarPelota();
-	}
-	if (preguntaFinal === "3")
-		return false;
-		
-	return true;
+return true;
+
 }
 
-function preciosFinales (){
+function menu (){
+	const producto = prompt (
+		"Elija uno de nuestros productos \n1: Pelota de Fútbol \n2: Pelota de Basquet \n3: Pelota de Voley \n4: Terminar"
+		)
+	return producto
+}
+
+function comprarPelota (){
+	const producto = menu ()
+	if (opciones(producto)	){
+
+		preguntaFinal = prompt (
+			"Vuelva a elegir una opcion: \n1: Mostrar precio Final \n2: Volver al menú anterior \n3: Terminar"
+		)	
+		
+		if (preguntaFinal === "1"){
+			preciosFinales (producto);
+		}
+		else if (preguntaFinal === "2"){	
+			if (!opciones(producto))
+				return false;
+		}
+		else if (preguntaFinal === "3"){
+			 return false;
+			}
+		
+		return true;
+	}
+}
+
+function preciosFinales (producto){
 	if (producto == "1") {
 		alert("El precio de la pelota de Fútbol es de $"+ precioPelotaFutbol *1.21 + " (IVA incluído)");
 	}
